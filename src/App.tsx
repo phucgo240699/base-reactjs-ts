@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import logo from './logo.svg';
+import apiProvider from './services';
 import './App.css';
 
 function App() {
+  useEffect(() => {
+    apiProvider.users.getUsers().then((data) => {
+      console.log({users: data})
+    })
+  }, [])
   return (
     <div className="App">
       <header className="App-header">
