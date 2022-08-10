@@ -1,12 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import apiProvider from './services';
 import './App.css';
 
 function App() {
+  const [students, setStudents] = useState<any[]>([])
   useEffect(() => {
     apiProvider.users.getUsers().then((data) => {
-      console.log({users: data})
+      setStudents(data.data as any[])
     })
   }, [])
   return (
@@ -16,6 +17,16 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
+        <p>{`Server is running on ${process.env.REACT_APP_ENV} environment`}</p>
+        {
+          students && <ol>
+            {
+              students.map((_student, index) => {
+                return <li key={index}>{_student.name}</li>
+              })
+            }
+          </ol>
+        }
         <a
           className="App-link"
           href="https://reactjs.org"
