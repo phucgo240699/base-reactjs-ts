@@ -8,6 +8,6 @@ services:
         - REACT_APP_ENV=production
         - REACT_APP_BASE_URL=https://students-sample-1a.herokuapp.com
     ports:
-      - "8080:80"
+      - "8081:80"
     env_file:
       - ./.env.prod
