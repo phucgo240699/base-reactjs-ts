@@ -17,7 +17,7 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
-        <p>{`Server is running on ${process.env.REACT_APP_ENV} environment`}</p>
+        <p>{`Server is running on ${process.env.REACT_APP_ENV} environment...`}</p>
         {
           students && <ol>
             {
